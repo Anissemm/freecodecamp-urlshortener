@@ -1,13 +1,13 @@
 const ShortUrl = require('../models');
-const validUrl = require('valid-url');
 const shortId = require('shortid');
+const validUrl = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
 
 const setUrl = async (req, res, next) => {
     const url = req.body.url;
     const urlId = shortId.generate();
 
-    if (!validUrl.isUri(url)) {
-        res.status(401).json({ error: 'invalid url' });
+    if (!validUrl.test(url)) {
+        res.json({ error: 'invalid url' });
     } else {
         try {
             let shortened = await ShortUrl.findOne({
