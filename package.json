@@ -4,17 +4,26 @@
   "description": "API project for freeCodeCamp",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "nodemon server.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "connect-mongo": "^4.6.0",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "install": "^0.13.0",
+    "mongoose": "^6.3.1",
+    "npm": "^8.7.0",
+    "re2": "^1.17.4",
+    "shortid": "^2.2.16",
+    "url-regex-safe": "^3.0.0",
+    "valid-url": "^1.0.9"
   },
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.15"
   }
 }
